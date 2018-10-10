@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.5.2/qs.js"></script>
+<script>
+var submitForm = function (e) {
+	var data = {
+			username: $('input[name=username]').val(),
+			password: $('input[name=password]').val()
+	};
+	console.log(data);
+	$.ajax({
+		type: 'post',
+		url: '/api/test',
+		data: data,
+		success: function (res) {
+			console.log(res)
+		},
+		error: function (res, xhr, err) {
+			console.log(err);
+		}
+	});
+}
+
+var submitAxios = function (e) {
+	var data = {
+			username: $('input[name=username]').val(),
+			password: $('input[name=password]').val()
+	};
+	console.log(data);
+	axios.post("/api/test", );
+}
+
+
+$(function() {
+	$('#jquery').click(submitForm);
+	$('#axios').click(submitAxios)
+});
+
+</script>
+</head>
+<body>
+  <div>
+    <form>
+      <input name="username" />
+      <input name="password" />
+      <button id="jquery" type="button" >Jquery</button>
+      <button id="axios" type="button" >Axios</button>
+    </form>
+  </div>
+</body>
+</html>

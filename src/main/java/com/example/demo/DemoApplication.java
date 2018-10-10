@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
+import com.example.demo.websocket.WebSocketController;
+
 @Controller
 @SpringBootApplication
 public class DemoApplication {
@@ -28,6 +30,11 @@ public class DemoApplication {
 	String index() {
 		System.out.println(service.getAllusers());
 		return "index";
+	}
+	
+	@GetMapping("/test")
+	String test() {
+		return "test";
 	}
 	
 	@ResponseBody
